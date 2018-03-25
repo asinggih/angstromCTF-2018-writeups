@@ -104,8 +104,38 @@ As I have mentioned earlier, we can obtain the <b>Flag</b> when ```numCookes >= 
 	```
 
 Note: 
-The reason behind 65 ```'b'```s not doing the trick might be due to not enough overflow to overwrite the ```numCookies``` variable. 73 ```'b'```s is the point where the overflow overwrites ```numCookies```, and 74 ````'b'```s fulfills the if condition. 
+The reason behind 65 ```'b'```s not doing the trick might be due to not enough overflow to overwrite the ```numCookies``` variable. 73 ```'b'```s is the point where the overflow overwrites ```numCookies```, and 74 ```'b'```s overwrite enough values to fulfill the if condition. Look at illustration below: 
 
+```
+			       / ----- 	|-----------------------| ---\
+			      /	        |    	   0	        |     \
+			     / 		|-----------------------|      \
+			    /		|	   0		|	\
+4 bytes int numCookies <----		|-----------------------|	  ----> Concatenate the bytes 0110001001100010
+			    \		|   'b' == 0b1100010	|	 /	 which converts to 25186 in decimal
+			     \		|-----------------------|	/
+			      \		|   'b' == 0b1100010	|      /
+				\ ----	|-----------------------| ----/
+					|			|
+					|   Location of some    |
+					|   other local var	|
+					|   (now full of 'b's)	|
+					|			|
+				/ ----	|-----------------------| 
+			       /	|			| 
+			      /		|    Location of	| 
+    64 bytes char buffer <----		|     char buffer 	| 
+			      \		|  (now full of 'b's)	| 
+			       \	|			| 
+				\ ----	|-----------------------| 
+					|	0x???????	| ----------> Return address of next function
+					|-----------------------|
+					|			|
+					|	  ....		|
+					|-----------------------|
+						0xFFFFF
+
+```
 ## Flag
 >actf{eat_cookies_get_buffer}
 
