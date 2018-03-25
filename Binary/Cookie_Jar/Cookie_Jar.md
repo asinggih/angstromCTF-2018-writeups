@@ -104,7 +104,7 @@ As I have mentioned earlier, we can obtain the <b>Flag</b> when ```numCookes >= 
 	```
 
 Note: 
-The reason behind 65 ```'b'```s not doing the trick might be due to not enough overflow to overwrite the ```numCookies``` variable. 73 ```'b'```s is the point where the overflow overwrites ```numCookies```, and 74 ```'b'```s overwrite enough values to fulfill the if condition. Look at illustration below: 
+The reason behind 65 ```'b'```s not doing the trick might be due to not enough overflow to overwrite the ```numCookies``` variable (I'm just guessing here). 73 ```'b'```s is the point where the overflow overwrites ```numCookies```, and 74 ```'b'```s overwrite enough values to fulfill the if condition. Look at illustration below: 
 
 ```
 			       / ----- 	|-----------------------| ---\
@@ -117,10 +117,8 @@ The reason behind 65 ```'b'```s not doing the trick might be due to not enough o
 			      \		|   'b' == 0b1100010	|      /
 				\ ----	|-----------------------| ----/
 					|			|
-					|   Location of some    |
-					|   other local var	|
-					|   (now full of 'b's)	|
-					|			|
+					| Location of something |
+					|	????		|
 				/ ----	|-----------------------| 
 			       /	|			| 
 			      /		|    Location of	| 
@@ -138,36 +136,6 @@ The reason behind 65 ```'b'```s not doing the trick might be due to not enough o
 ```
 ## Flag
 >actf{eat_cookies_get_buffer}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
