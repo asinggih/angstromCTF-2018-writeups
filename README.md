@@ -11,7 +11,7 @@ XOR | Crypto | 40
 Intro to RSA | Crypto | 40
 [Accumulator](./Binary/Accumulator/Accumulator.md) | Binary | 50
 [Cookie Jar](./Binary/Cookie_Jar/Cookie_Jar.md) | Binary | 60
-[Rop to the Top](./Binary/Rop_to_the_Top) | Binary | 130
+[Rop to the Top](./Binary/Rop_to_the_Top/Rop_to_the_Top.md) | Binary | 130
 
  
 
