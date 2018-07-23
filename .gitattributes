@@ -1,0 +1,5 @@
+Binary/* linguist-vendored
+Accumulator/accumulator.c linguist-vendored=false
+Cookie_Jar/cookiePublic.c linguist-vendored=false
+Rop_to_the_Top/rop_to_the_top.c linguist-vendored=false
+
